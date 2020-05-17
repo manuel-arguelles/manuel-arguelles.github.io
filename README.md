@@ -1,2 +1,0 @@
-# paco.github.io
-Blog
