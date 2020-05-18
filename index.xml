@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog</title>
+    <link>http://example.org/</link>
+    <description>Recent content on Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 17 May 2020 22:02:00 -0500</lastBuildDate>
+    
+	<atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hello world!</title>
+      <link>http://example.org/posts/hello-world/</link>
+      <pubDate>Sun, 17 May 2020 22:02:00 -0500</pubDate>
+      
+      <guid>http://example.org/posts/hello-world/</guid>
+      <description>First post! I&#39;ve finally decided to return to blogging, or at least to give it a try. The idea is to document my ideas, projects and failures.
+I&#39;ll be using Hugo to generate the site and GitHub&#39;s pages to host it.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>http://example.org/about/</link>
+      <pubDate>Sun, 17 May 2020 16:43:34 -0500</pubDate>
+      
+      <guid>http://example.org/about/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
