@@ -1,170 +1,56 @@
-
 <!DOCTYPE html>
-<html lang="en-us">
-
+<html class="no-js" lang="en-us">
 <head>
-<meta charset="utf-8" />
-<meta name="author" content="" />
-<meta name="description" content="" />
-<meta name="keywords" content="" />
-<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-<meta name="generator" content="Hugo 0.60.1" />
-
-<link rel="canonical" href="http://example.org/">
-<meta property="og:title" content="Blog" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://example.org/" />
-<meta property="og:updated_time" content="2020-05-17T22:02:00-05:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Blog"/>
-<meta name="twitter:description" content=""/>
-
-
-<meta itemprop="name" content="Blog">
-<meta itemprop="description" content="">
-
-<link rel="stylesheet" href="/css/layout.css" />
-
-
-<link rel="stylesheet" href="/css/default-dark.css" />
-
-
-
-
-<title>
-
-
-     Blog 
-
-</title>
-
+	<meta name="generator" content="Hugo 0.79.0" />
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#1b1b1b">
+	<title>Blog</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="stylesheet" href="/css/bundle.css">
+	<link rel="icon" href="/icons/16.png" sizes="16x16" type="image/png">
+	<link rel="icon" href="/icons/32.png" sizes="32x32" type="image/png">
+	<link rel="alternate" type="application/rss+xml" href="/index.xml" title="Blog">
+		
 </head>
-
-
-<body>
-<div class="main">
-<header>
-
-<div class="header-bar">
-
-  <nav>
-    <div class="siteTitle">
-      <a href="http://example.org/">Blog</a>
-    </div> 
-
-    
-    
-
-  </nav>
-
-  
-<div class="social-links-header">
-
-  
-
-  
-
-  
-
-  
-
-  
-
-</div>
-
-
-</div>
-
-
+<body class="body kind-home">
+	<header class="header">
+	<a class="logo" href="/">Blog</a>
+	
 </header>
-
-
-<main>
-
-
-  
-    <article class="post-preview">
-
-  <header>
-    <h2 class="title"> <a href='http://example.org/posts/hello-world/'> Hello world!</a> </h2>
-    <div class="meta">
-      <div class="date">
-      17 May, 2020 - 1 minutes
-      </div>
-      
-<div class="tags">
-  
-</div>
-
-    </div>
-
-  </header>
-
-  <div class="summary">
-    First post! I've finally decided to return to blogging, or at least to give it a try. The idea is to document my ideas, projects and failures.
-I'll be using Hugo to generate the site and GitHub's pages to host it.
-  </div>
-
-  <div class="rmore">
-    <a href='http://example.org/posts/hello-world/' class="rmore">Read more</a>
-  </div>
-
-
+	<div class="primary">
+	
+	<main class="main">
+			<div class="cards">
+					<div class="card card--1col">
+					<article class="entry card__box block">
+	<h1 class="entry__title title-excerpt"><a class="entry__title-link" href="/posts/blogging-workflow/">Blogging workflow</a></h1>
+	<div class="entry__content">I&rsquo;m still trying to figure out the best workflow for me, for now I&rsquo;m using Emacs with Org mode, the package that generates the Markdown from the org files is called ox-hugo. I&rsquo;m using the development version of Spacemacs and the installation was super easy. My configuration looks like this:
+dotspacemacs-configuration-layers &#39;( (org :variables org-want-todo-bindings t org-enable-hugo-support t) ) All the posts (blogs entries) are in one file, as recommended by ox-hugo, each entry is a todo.</div>
+	<div class="entry__meta meta mt tar">
+	<time class="entry__meta-published meta-published" datetime="2021-01-09T18:55:00-05:00">January 09, 2021</time>
+	</div>
 </article>
+					</div>
+					<div class="card card--1col">
+					<article class="entry card__box block">
+	<h1 class="entry__title title-excerpt"><a class="entry__title-link" href="/posts/hello-world/">Hello world!</a></h1>
+	<div class="entry__content">First post! I&rsquo;ve finally decided to return to blogging, or at least to give it a try. The idea is to document my ideas, projects and failures.
+I&rsquo;ll be using Hugo to generate the site and GitHub&rsquo;s pages to host it.</div>
+	<div class="entry__meta meta mt tar">
+	<time class="entry__meta-published meta-published" datetime="2020-05-17T22:02:00-05:00">May 17, 2020</time>
+	</div>
+</article>
+					</div>
+			</div>
+	</main>
+	
 
-
-
-
-<div class="page-nav">
-  <div class="page-prev">
-    
-  </div> 
-
-  <div class="page-num">
-    1/1
-  </div> 
-
-  <div class="page-next">
-    
-  </div> 
-</div> 
-
-
-</main>
-
-  <footer>
-
-  <div class="social-links-footer">
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  <div class="social-link">
-  <a href="http://example.org/index.xml" target="_blank">RSS</a>
-  </div>
-
-</div>
-
-
-  <div class="copyright">  </div>
-
-  <div class="poweredby">
-    Powered by <a href="https://gohugo.io/">Hugo</a>.
-  </div>
-
-  </footer>
-
-</div> 
-
+	</div>
+	<footer class="footer">
+	<div class="footer__copyright">© 2021 Blog. <span class="footer__copyright-credits">Powered by <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/vimux/binario" rel="nofollow noopener" target="_blank">Binario</a> theme.</span></div>
+</footer>
 </body>
 </html>
-

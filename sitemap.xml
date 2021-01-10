@@ -3,31 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://example.org/</loc>
+    <loc>https://manuel-arguelles.github.io/</loc>
+    <lastmod>2021-01-09T18:55:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://manuel-arguelles.github.io/tags/blog/</loc>
+    <lastmod>2021-01-09T18:55:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://manuel-arguelles.github.io/posts/blogging-workflow/</loc>
+    <lastmod>2021-01-09T18:55:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://manuel-arguelles.github.io/posts/</loc>
+    <lastmod>2021-01-09T18:55:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://manuel-arguelles.github.io/tags/</loc>
+    <lastmod>2021-01-09T18:55:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://manuel-arguelles.github.io/posts/hello-world/</loc>
     <lastmod>2020-05-17T22:02:00-05:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/posts/hello-world/</loc>
-    <lastmod>2020-05-17T22:02:00-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://example.org/posts/</loc>
-    <lastmod>2020-05-17T22:02:00-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://example.org/about/</loc>
-    <lastmod>2020-05-17T16:43:34-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://example.org/categories/</loc>
-  </url>
-  
-  <url>
-    <loc>http://example.org/tags/</loc>
+    <loc>https://manuel-arguelles.github.io/categories/</loc>
   </url>
   
 </urlset>

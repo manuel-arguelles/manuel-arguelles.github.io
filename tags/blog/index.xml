@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Blog</title>
-    <link>https://manuel-arguelles.github.io/posts/</link>
-    <description>Recent content in Posts on Blog</description>
+    <title>blog on Blog</title>
+    <link>https://manuel-arguelles.github.io/tags/blog/</link>
+    <description>Recent content in blog on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 Jan 2021 18:55:00 -0500</lastBuildDate><atom:link href="https://manuel-arguelles.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 09 Jan 2021 18:55:00 -0500</lastBuildDate><atom:link href="https://manuel-arguelles.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Blogging workflow</title>
       <link>https://manuel-arguelles.github.io/posts/blogging-workflow/</link>
@@ -15,16 +15,6 @@
       <guid>https://manuel-arguelles.github.io/posts/blogging-workflow/</guid>
       <description>I&amp;rsquo;m still trying to figure out the best workflow for me, for now I&amp;rsquo;m using Emacs with Org mode, the package that generates the Markdown from the org files is called ox-hugo. I&amp;rsquo;m using the development version of Spacemacs and the installation was super easy. My configuration looks like this:
 dotspacemacs-configuration-layers &amp;#39;( (org :variables org-want-todo-bindings t org-enable-hugo-support t) ) All the posts (blogs entries) are in one file, as recommended by ox-hugo, each entry is a todo.</description>
-    </item>
-    
-    <item>
-      <title>Hello world!</title>
-      <link>https://manuel-arguelles.github.io/posts/hello-world/</link>
-      <pubDate>Sun, 17 May 2020 22:02:00 -0500</pubDate>
-      
-      <guid>https://manuel-arguelles.github.io/posts/hello-world/</guid>
-      <description>First post! I&amp;rsquo;ve finally decided to return to blogging, or at least to give it a try. The idea is to document my ideas, projects and failures.
-I&amp;rsquo;ll be using Hugo to generate the site and GitHub&amp;rsquo;s pages to host it.</description>
     </item>
     
   </channel>
