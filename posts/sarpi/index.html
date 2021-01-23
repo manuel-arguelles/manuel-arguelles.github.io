@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#1b1b1b">
+	<title>Installing Slackware on a Raspberry PI4 | Blog</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+	<link rel="stylesheet" href="/css/bundle.css">
+	<link rel="icon" href="/icons/16.png" sizes="16x16" type="image/png">
+	<link rel="icon" href="/icons/32.png" sizes="32x32" type="image/png">
+		
+</head>
+<body class="body kind-page">
+	<header class="header">
+	<a class="logo" href="/">Blog</a>
+	
+</header>
+	<div class="primary">
+	
+	<main class="main">
+		
+		<div class="single block">
+			<article class="entry">
+	<div class="entry__meta meta mb">
+	<time class="entry__meta-published meta-published" datetime="2021-01-22T20:16:00-05:00">January 22, 2021</time>
+	</div>
+				<h1 class="entry__title">Installing Slackware on a Raspberry PI4</h1>
+				<div class="entry__content"><p>I believe ARM architecture to be the future; and while I wait for the <a href="https://www.khadas.com/vim3">Khadas VIM3</a> to arrive I thought it may be a good idea to see if the Raspberry Pi could replace my desktop (I hope to achieve that with the VIM3). My Linux distribution of choice is <a href="http://www.slackware.com/">Slackware</a>, one of the many reasons that I like it for, is that you get a sort of two distros in one: It can be a rolling distribution (just like <a href="https://archlinux.org/">Arch Linux</a>) or a fixed one. This allows me to get the rolling one (which is called -current and gets updated almost daily) on my desktop to enjoy the latest version of everything, while having a more stable one (fixed version) like 14.4 on my NAS server.</p>
+<p>Slackware has an official ARM port for 32bits and the work for a 64bits version (aarch64) has already started, so the timing is perfect. I have a Raspberry Pi 4 with 4MB or RAM. The installation is possible thanks to the great work of the <a href="https://sarpi.fatdog.eu/">SARPi project</a>, SARPi packs the binary files from the Raspberry foundation, the kernel and configurations files in a way that works with the official installation.</p>
+<p>The installation was smooth following the excellent documentation of the SARPi project, the only issue for me was that I didn&rsquo;t want to download an ISO or mirror the repository as a source for installation. Network installation is of course possible, but I was away from my router and the packages required for a WPA wireless connection are not available in the installer. However, it just a matter of pulling the missing packages over an usb drive from the <a href="ftp://ftp.arm.slackware.com/slackwarearm/slackwarearm-current/">repository</a>.</p>
+<p>The packages required are:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wpa_supplicant
+wireless_tools
+iw
+libnl3
+</code></pre></div><p>After that the wireless interface can be configured as usual.</p>
+<p>It took me a while to install all the packages that I normally use and restore some of my configuration (dot files) but overall the process was quite pleasant, performance wise, it is ok, but struggles a bit playing YouTube videos, so I wouldn&rsquo;t recommend it as a desktop replacement. Maybe their new version with 8GB of RAM is more suitable for that, but at this point I already have too many RPis and can&rsquo;t justify buying another one. So my quest to replace my desktop with ARM continues&hellip;</p>
+</div>
+				
+				<footer class="entry__footer">
+					
+<div class="entry__tags">
+			<a class="entry__tag btn" href="/tags/arm/">arm</a>
+			<a class="entry__tag btn" href="/tags/pi/">pi</a>
+</div>
+					
+<div class="entry__share share">
+	<a class="share__link btn" title="Share on Facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmanuel-arguelles.github.io%2fposts%2fsarpi%2f" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href, 'Share on Facebook', 'width=800,height=600,toolbar=0,status=0'); return false">
+		<svg class="share__icon" aria-label="Facebook" role="img" width="32" height="32" viewBox="0 0 512 512"><path d="M330 512V322h64l9-74h-73v-47c0-22 6-36 37-36h39V99c-7-1-30-3-57-3-57 0-95 34-95 98v54h-64v74h64v190z"/></svg>
+	</a>
+	<a class="share__link btn" title="Share on Twitter" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fmanuel-arguelles.github.io%2fposts%2fsarpi%2f&amp;text=Installing%20Slackware%20on%20a%20Raspberry%20PI4" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href, 'Share on Twitter', 'width=800,height=450,resizable=yes,toolbar=0,status=0'); return false">
+		<svg class="share__icon" aria-label="Twitter" role="img" width="32" height="32" viewBox="0 0 512 512"><path d="M437 152a72 72 0 0 1-40 12 72 72 0 0 0 32-40 72 72 0 0 1-45 17 72 72 0 0 0-122 65 200 200 0 0 1-145-74 72 72 0 0 0 22 94 72 72 0 0 1-32-7 72 72 0 0 0 56 69 72 72 0 0 1-32 1 72 72 0 0 0 67 50 200 200 0 0 1-105 29 200 200 0 0 0 309-179 200 200 0 0 0 35-37"/></svg>
+	</a>
+	<a class="share__link btn" title="Share on Reddit" href="https://www.reddit.com/submit?url=https%3a%2f%2fmanuel-arguelles.github.io%2fposts%2fsarpi%2f&amp;title=Installing%20Slackware%20on%20a%20Raspberry%20PI4" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href, 'Share on Reddit', 'width=832,height=624,toolbar=0,status=0'); return false">
+		<svg class="share__icon" aria-label="Reddit" role="img" width="32" height="32" viewBox="0 0 512 512"><path fill-rule="evenodd" d="M375 146a32 32 0 1 0-29-46l-65-13c-5-1-9 2-10 6l-22 97c-45 1-85 15-113 36a42 42 0 1 0-45 69l-1 12c0 65 74 117 166 117s166-52 166-117l-1-11a42 42 0 1 0-44-69c-28-21-67-35-111-37l19-86 58 13a32 32 0 0 0 32 29zM190 353c2-1 4 0 5 1 15 11 38 18 61 18s46-6 61-18a7 7 0 0 1 8 10c-18 14-44 21-69 21-25-1-51-7-69-21a6 6 0 0 1 3-11zm23-44a31 31 0 1 1-44-44 31 31 0 0 1 44 44zm130 0a31 31 0 1 0-44-44 31 31 0 0 0 44 44z"/></svg>
+	</a>
+</div>
+				</footer>
+				
+			</article>
+		</div>
+	</main>
+	
+	
+
+
+
+	
+
+	</div>
+	<footer class="footer">
+	<div class="footer__copyright">© 2021 Blog. <span class="footer__copyright-credits">Powered by <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/vimux/binario" rel="nofollow noopener" target="_blank">Binario</a> theme.</span></div>
+</footer>
+</body>
+</html>

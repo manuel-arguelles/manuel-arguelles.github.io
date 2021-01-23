@@ -6,7 +6,16 @@
     <description>Recent content on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 Jan 2021 18:55:00 -0500</lastBuildDate><atom:link href="https://manuel-arguelles.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 22 Jan 2021 20:16:00 -0500</lastBuildDate><atom:link href="https://manuel-arguelles.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Installing Slackware on a Raspberry PI4</title>
+      <link>https://manuel-arguelles.github.io/posts/sarpi/</link>
+      <pubDate>Fri, 22 Jan 2021 20:16:00 -0500</pubDate>
+      
+      <guid>https://manuel-arguelles.github.io/posts/sarpi/</guid>
+      <description>I believe ARM architecture to be the future; and while I wait for the Khadas VIM3 to arrive I thought it may be a good idea to see if the Raspberry Pi could replace my desktop (I hope to achieve that with the VIM3). My Linux distribution of choice is Slackware, one of the many reasons that I like it for, is that you get a sort of two distros in one: It can be a rolling distribution (just like Arch Linux) or a fixed one.</description>
+    </item>
+    
     <item>
       <title>Blogging workflow</title>
       <link>https://manuel-arguelles.github.io/posts/blogging-workflow/</link>
