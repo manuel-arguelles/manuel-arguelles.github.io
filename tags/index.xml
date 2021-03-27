@@ -6,13 +6,31 @@
     <description>Recent content in Tags on Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 22 Jan 2021 20:16:00 -0500</lastBuildDate><atom:link href="https://manuel-arguelles.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 27 Mar 2021 01:32:00 -0500</lastBuildDate><atom:link href="https://manuel-arguelles.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>arm</title>
       <link>https://manuel-arguelles.github.io/tags/arm/</link>
-      <pubDate>Fri, 22 Jan 2021 20:16:00 -0500</pubDate>
+      <pubDate>Sat, 27 Mar 2021 01:32:00 -0500</pubDate>
       
       <guid>https://manuel-arguelles.github.io/tags/arm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>monero</title>
+      <link>https://manuel-arguelles.github.io/tags/monero/</link>
+      <pubDate>Sat, 27 Mar 2021 01:32:00 -0500</pubDate>
+      
+      <guid>https://manuel-arguelles.github.io/tags/monero/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pi4</title>
+      <link>https://manuel-arguelles.github.io/tags/pi4/</link>
+      <pubDate>Sat, 27 Mar 2021 01:32:00 -0500</pubDate>
+      
+      <guid>https://manuel-arguelles.github.io/tags/pi4/</guid>
       <description></description>
     </item>
     
