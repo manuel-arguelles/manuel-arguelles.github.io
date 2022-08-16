@@ -1,0 +1,16 @@
+baseURL = "https://manuel-arguelles.github.io/"
+languageCode = "en-us"
+title = "Blog"
+theme = "binario"
+
+[Params]
+mainMenuAlignment = "right"
+columns = 1
+
+[Params.Entry]
+meta = ["date"]
+
+[Params.Share]
+facebook = true
+twitter = true
+reddit = true

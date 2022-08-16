@@ -1,0 +1,105 @@
+#+HUGO_BASE_DIR: ~/Stuff/Code/blog/
+#+HUGO_SECTION: posts
+
+* DONE Hello world!
+CLOSED: [2020-05-17 Sun 22:02]
+:PROPERTIES:
+:EXPORT_FILE_NAME: hello-world
+:END:
+First post! I've finally decided to return to blogging, or at least to give it a try. The idea is to document my ideas, projects and failures.
+
+I'll be using [[https://gohugo.io/][Hugo]] to generate the site and [[https://help.github.com/en/github/working-with-github-pages][GitHub's pages]] to host it.
+
+* DONE Blogging workflow                                               :blog:
+  CLOSED: [2021-01-09 Sat 18:55]
+  :PROPERTIES:
+  :EXPORT_FILE_NAME: blogging-workflow
+  :END:
+  I'm still trying to figure out the best workflow for me, for now I'm using [[https://www.gnu.org/software/emacs/][Emacs]] with [[https://orgmode.org/][Org mode]], the package that generates the Markdown from the org files is called [[https://ox-hugo.scripter.co/][ox-hugo]]. I'm using the development version of [[https://www.spacemacs.org/][Spacemacs]] and the installation was super easy. My configuration looks like this:
+  #+begin_src emacs-lisp
+  dotspacemacs-configuration-layers
+  '(
+    (org :variables
+         org-want-todo-bindings t
+         org-enable-hugo-support t)
+   )
+   #+end_src
+   
+   All the posts (blogs entries) are in one file, as recommended by ox-hugo, each entry is a todo. The reason for that is that once the status changes to done, the date is recorded. This is quite handy to date the entries once you are done writing them.
+
+   For the hosting I'm using two repositories, the output which is basically the HTML part (that's the public/ directory in the Hugo structure) and the rest in a separate repository.
+
+* DONE Installing Slackware on a Raspberry PI4                       :arm:pi:
+  CLOSED: [2021-01-22 Fri 20:16]
+  :PROPERTIES:
+  :EXPORT_FILE_NAME: sarpi
+  :END:
+  I believe ARM architecture to be the future; and while I wait for the [[https://www.khadas.com/vim3][Khadas VIM3]] to arrive I thought it may be a good idea to see if the Raspberry Pi could replace my desktop (I hope to achieve that with the VIM3). My Linux distribution of choice is [[http://www.slackware.com/][Slackware]], one of the many reasons that I like it for, is that you get a sort of two distros in one: It can be a rolling distribution (just like [[https://archlinux.org/][Arch Linux]]) or a fixed one. This allows me to get the rolling one (which is called -current and gets updated almost daily) on my desktop to enjoy the latest version of everything, while having a more stable one (fixed version) like 14.4 on my NAS server.
+
+  Slackware has an official ARM port for 32bits and the work for a 64bits version (aarch64) has already started, so the timing is perfect. I have a Raspberry Pi 4 with 4MB or RAM. The installation is possible thanks to the great work of the [[https://sarpi.fatdog.eu/][SARPi project]], SARPi packs the binary files from the Raspberry foundation, the kernel and configurations files in a way that works with the official installation.
+
+  The installation was smooth following the excellent documentation of the SARPi project, the only issue for me was that I didn't want to download an ISO or mirror the repository as a source for installation. Network installation is of course possible, but I was away from my router and the packages required for a WPA wireless connection are not available in the installer. However, it just a matter of pulling the missing packages over an usb drive from the [[ftp://ftp.arm.slackware.com/slackwarearm/slackwarearm-current/][repository]].
+
+  The packages required are:
+  #+begin_src bash
+    wpa_supplicant
+    wireless_tools
+    iw
+    libnl3
+  #+end_src
+
+  After that the wireless interface can be configured as usual.
+
+  It took me a while to install all the packages that I normally use and restore some of my configuration (dot files) but overall the process was quite pleasant, performance wise, it is ok, but struggles a bit playing YouTube videos, so I wouldn't recommend it as a desktop replacement. Maybe their new version with 8GB of RAM is more suitable for that, but at this point I already have too many RPis and can't justify buying another one. So my quest to replace my desktop with ARM continues...
+
+* DONE Mining on a Raspberry PI4                             :arm:pi4:monero:
+  CLOSED: [2021-03-27 Sat 01:32]
+  :PROPERTIES:
+  :EXPORT_FILE_NAME: mining
+  :END:
+  I have an extra Raspberry Pi4 doing basically nothing, and with the Nano R4S on its way to replace my router I'd soon have 2 Pi4 doing nothing, so until I find a purpose for them, why not get them to mine a bit! I've been a huge fan of [[https://www.getmonero.org/][Monero]], I like everything of it, from the name (in Esperanto, a language that I have been slowly trying to learn) to its superb privacy. Mining Monero helps with the decentralization of the network. I did a bit of research and went with a small mining pool. Small mining pools take longer to find a block, but the reward gets divided with less people.
+
+  I downloaded the mining software called xmrig, which apparently is one of the best, fired up my Raspberry Pi4 with the aarch64 version of [[https://downloads.raspberrypi.org/raspios_arm64/images/][Raspberry OS]], downloaded and compiled the [[https://github.com/xmrig/xmrig][code]] and started mining. That was pretty easy, however, the hash rate was a bit small, I was getting only 88 hashes per second. Usually modern CPUs should give at least 1 or 1.5 KH/s, that's more than 10 times of what I'm getting.
+
+  This version is not [[https://www.raspberrypi.org/documentation/configuration/config-txt/overclocking.md][overclocked]] and I noticed that [[https://www.kernel.org/doc/html/latest/admin-guide/mm/hugetlbpage.html][huge pages]] were not available, I have 4 GB or RAM, so huge pages would probably improve things a bit. After googling around I found that the kernel that ships with the Raspberry OS does not includes support for huge pages. Time to recompile it, I followed the 64 bits instructions on their website to [[https://www.raspberrypi.org/documentation/linux/kernel/building.md][rebuild the kernel]] and enabled huge pages. The relevant entries in the configuration that were changed were:
+  #+begin_src bash
+    CONFIG_CGROUP_HUGETLB=y
+    CONFIG_SYS_SUPPORTS_HUGETLBFS=y
+    CONFIG_ARCH_ENABLE_HUGEPAGE_MIGRATION=y
+    CONFIG_HAVE_ARCH_TRANSPARENT_HUGEPAGE=y
+    CONFIG_TRANSPARENT_HUGEPAGE=y
+    CONFIG_TRANSPARENT_HUGEPAGE_ALWAYS=y
+    # CONFIG_TRANSPARENT_HUGEPAGE_MADVISE is not set
+    CONFIG_HUGETLBFS=y
+    CONFIG_HUGETLB_PAGE=y
+  #+end_src
+
+  If you use ~make menuconfig~ (as I did) those are the menu options that I enabled: ~Memory Management options~ --> ~Transparent Hugepage Support~, ~File systems~ --> ~Pseudo filesystems~ --> ~HugeTLB file system support~ and finally ~General setup~ --> ~Control Group support~ --> ~HugeTLB controller~ and that was it. I also took the opportunity to overclock the CPU a bit, I don't have a powerful fan (the ICE Tower is on its way) so I just added this to ~/boot/config.txt~:
+  #+begin_src bash
+    over_voltage=2
+    arm_freq=1700
+    max_framebuffers=0
+    gpu_mem=16
+  #+end_src
+
+  Which basically increases a bit the CPU clock and lowers the memory used for the GPU and frame buffers. I also changed the boot setup to start without X. With all of this, there was an improvement, but I think it can be better, probably not much better, but there's still room to overclock and fine tune the huge pages configuration. But for now, it is giving around 100 hashes per second, nothing crazy but taking in consideration that it was just collecting dust, why not.
+
+  This is the current output of xmrig:
+  #+begin_src
+    [2021-03-20 22:59:41.396]  miner    speed 10s/60s/15m 99.61 99.70 99.71 H/s max 118.2 H/s
+    [2021-03-20 22:59:50.125]  cpu      accepted (5798/0) diff 3391 (146 ms)
+    [2021-03-20 23:00:41.442]  miner    speed 10s/60s/15m 99.61 99.61 99.70 H/s max 118.2 H/s
+    [2021-03-20 23:00:52.844]  cpu      accepted (5799/0) diff 3391 (144 ms)
+    |    CPU # | AFFINITY | 10s H/s | 60s H/s | 15m H/s |
+    |        0 |        0 |   24.51 |   24.64 |   24.69 |
+    |        1 |        1 |   24.83 |   24.79 |   24.87 |
+    |        2 |        2 |   24.83 |   25.07 |   25.08 |
+    |        3 |        3 |   25.14 |   25.06 |   25.07 |
+    |        - |        - |   99.31 |   99.55 |   99.70 |
+    [2021-03-20 23:01:03.030]  miner    speed 10s/60s/15m 99.31 99.55 99.70 H/s max 118.2 H/s
+  #+end_src
+
+  So, is it profitable? No, probably not, even with the little power consumption of the Pi, it's probably not worth it. However, as a relative inexpensive way of supporting the project, it's great. Just avoid the big pools; to keep the network healthy it is important to have several, independent, small pools rather than a few big ones.
+  
+ 
+  
