@@ -15,9 +15,3 @@ facebook = true
 twitter = true
 reddit = true
 
-
-
-[module]
-[[module.imports]]
-  path = 'github.com/Vimux/Binario'
-
