@@ -116,3 +116,65 @@ Anyways, back to my VIM3. I got it working easily, pipewire was crashing the ker
 Back to the Fireflyx ITX-3588J, its problem is the price, that range is similar to a modern x86 computer, hopefully as time goes by, we will see more and more RK3588 boards, maybe one with 16/32GB, dual display and nvme, in the mean time, I'd probably get back to CISC.
 
 [[file:images/vim3.png]]
+
+* DONE Vortex, the keyboard :pi4:
+CLOSED: [2023-01-15 Sun 23:25]
+:PROPERTIES:
+:EXPORT_FILE_NAME: vortex
+:END:
+The Vortex Pok3r is a 60% keyboard that I got as a gift from a friend. It's a solid keyboard but the firmware is proprietary and quite restrictive; I like to set the arrows keys to follow the vi keybindings (h,j,k,l), this is not possible with the stock firmware, besides that I also use the caps lock key as left control, this is possible, but it is always better to have full control of all the keys. This entry is describes my journey.
+
+#+caption: Original keyboard
+[[file:images/vortex1.jpeg]]
+
+My initial goal was to just install QMK firmware, after a bit of research I came across [[https://github.com/pok3r-custom/qmk_pok3r][a fork of QMK for the Pok3r]], with a custom tool to [[https://github.com/pok3r-custom/pok3rtool/wiki][flash images]]. The only missing part was how to get into the chip and replace the proprietary firmware with this on. The chip is an HT32.
+
+#+caption: chipset
+[[file:images/vortex2.jpeg]]
+
+Unlocking the HT32 is possible thanks to a [[https://github.com/ChaoticEnigma/openocd-ht32][fork of OpenOCD]] with support to this chip, in order to connect to it an adapter/device is required, the recommended one seems to be an ST-Link (JTAG/SWD interface), unfortunately I don't have such device and I don't have a use for one rather than this project, investing in such a tool for only one project didn't seem like a good idea, lucky for me, OpenOCD supports using the GPIO pins of a Raspberry as interface and I do happen to have a Raspberry 4, so I gave it a try.
+
+#+begin_src
+interface bcm2835gpio
+
+debug_level 2
+adapter_khz 1
+
+
+### those are the numbers for pi4
+bcm2835gpio_peripheral_base 0xFE000000
+bcm2835gpio_speed_coeffs 236181 60
+
+
+## use pinout.xyz, those are pins 38 and 40
+bcm2835gpio_swd_nums 20 21
+
+## pin 12 on the PI
+bcm2835gpio_srst_num 18
+
+## dont forget pin 9 for Ground
+transport select swd
+
+## Thanks to Borislav Nikolov
+#+end_src
+
+I saw the SWD connector on the board and went with the easy route: push some jumper wires on it and give it a try, of course that didn't work, the connection was too loose and failed randomly, even after trying to solder them the problem persisted, probably because the copper plates were on the opposite side, which makes it difficult to get a good connection without removing all the switches and resolder the wires from the (other) right side, eventually I ended up doing it.
+
+#+caption: First try, from the wrong side
+[[file:images/vortex3.jpeg]]
+
+#+caption: With pins soldered from the right side
+[[file:images/vortex4.jpeg]]
+
+With a good connection it was possible to flash the HT32 with the custom firmware using the forked version of OpenOCD and from there loading the custom QMK firmware with my keymap to it using pok3rtool.
+
+There was some rust on the plate and since I got all the brown mx switches out, I decided to paint the whole plate and case black and get some gateron yellow switches (since they are super cheap and quite decent), here are some pictures of the final product. Thanks to [[https://github.com/ChaoticEnigma][Charlie Waters]] for making this possible.
+
+#+caption: Rusty plate
+[[file:images/vortex5.jpeg]]
+
+#+caption: Paint job
+[[file:images/vortex6.jpeg]]
+
+#+caption: Final keyboard
+[[file:images/vortex7.jpeg]]
