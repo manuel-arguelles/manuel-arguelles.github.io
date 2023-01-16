@@ -6,6 +6,7 @@ theme = "binario"
 [Params]
 mainMenuAlignment = "right"
 columns = 1
+customCSS = ["styles.css"]
 
 [Params.Entry]
 meta = ["date"]
